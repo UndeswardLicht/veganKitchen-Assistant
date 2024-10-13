@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Properties>
+        <Property name="DATE">${date:yyyy-MM-dd}</Property>
+        <Property name="BASE_PATH">${sys:catalina.home}/webapps/veganKitchen</Property>
+        <Property name="CONSOLE_LOG_MSG_PATTERN">%d{HH:MM:ss} [%-5level] %logger{2} - %msg%n</Property>
+        <Property name="FILE_LOG_MSG_PATTERN">%d{YYYY-mm-dd HH:MM:ss} [%-25t] [%-5level] %logger{5} - %msg%n</Property>
+    </Properties>
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="${CONSOLE_LOG_MSG_PATTERN}"/>
+        </Console>
+        <File name="File"
+              fileName="${BASE_PATH}/logs/${DATE}-kitchen.log"
+              createOnDemand="true"
+              append="true">
+            <PatternLayout pattern="${FILE_LOG_MSG_PATTERN}"/>
+        </File>
+    </Appenders>
+    <Loggers>
+        <Root level="debug">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="File"/>
+        </Root>
+    </Loggers>
+</Configuration>
