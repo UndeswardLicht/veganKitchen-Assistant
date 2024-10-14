@@ -1,9 +1,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>My awesome page</title>
+    <title>Main</title>
 </head>
 <body>
-${first}
+    <hr/>
+        ${user}, hello!
+    <hr/>
+    <a href="controller?command=logout">Logout</a>
 </body>
 </html>
